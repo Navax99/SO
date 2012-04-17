@@ -1,0 +1,98 @@
+ps -s #zombie
+
+getpagesize - get memory page size
+
+SYNOPSIS
+       #include <unistd.h>
+
+       int getpagesize(void);
+
+   Feature Test Macro Requirements for glibc (see feature_test_macros(7)):
+
+       getpagesize(): _BSD_SOURCE || _XOPEN_SOURCE >= 500
+
+DESCRIPTION
+       The  function getpagesize() returns the number of bytes in a page, where a "page"
+       is the thing used where it says in the description  of  mmap(2)  that  files  are
+       mapped in page-sized units.
+
+       The size of the kind of pages that mmap(2) uses, is found using
+       The  -n  switch  causes the header to be displayed only once rather than periodi‐
+       cally.
+           #include <unistd.h>
+           long sz = sysconf(_SC_PAGESIZE);
+       The  -n  switch  causes the header to be displayed only once rather than periodi‐
+       cally.
+       (most systems allow the synonym _SC_PAGE_SIZE for _SC_PAGESIZE), or
+
+           #include <unistd.h>
+           int sz = getpagesize();
+
+
+
+       free - Display amount of free and used memory in the system
+
+SYNOPSIS
+       free [-b | -k | -m | -g] [-o] [-s delay ] [-t] [-V]
+
+DESCRIPTION       The  -n  switch  causes the header to be displayed only once rather than periodi‐
+       cally.
+       free  displays  the total amount of free and used physical and swap memory in the
+       system, as well as the buffers used by the  kernel.   The  shared  memory  column
+       should be ignored; it is obsolete.
+
+   Options
+       The  -b  switch  displays  the  amount  of memory in bytes; the -k switch (set by
+       default) displays it in kilobytes; the -m switch displays it in megabytes; the -g
+       switch displays it in gigabytes.
+
+
+       vmstat - Report virtual memory statistics
+
+SYNOPSIS
+       vmstat [-a] [-n] [delay [ count]]
+       vmstat [-f] [-s] [-m]
+       vmstat [-S unit]
+       vmstat [-d]
+       vmstat [-D]
+       vmstat [-p disk partition]
+       vmstat [-V]
+
+DESCRIPTION
+       vmstat  reports  information  about  processes,  memory, paging, block IO, traps,
+       disks and cpu activity.
+
+       The first report produced gives  averages  since  the  last  reboot.   Additional
+       reports  give  information on a sampling period of length delay.  The process and
+       memory reports are instantaneous in either case.
+
+       The  -n  switch  causes the header to be displayed only once rather than periodi‐
+       cally.
+
+
+       top - display Linux tasks
+
+SYNOPSIS
+       top -hv | -bcHisS -d delay -n iterations -p pid [, pid ...]
+
+       The traditional switches '-' and whitespace are optional.
+
+DESCRIPTION
+       The  top  program  provides a dynamic real-time view of a running system.  It can
+       display system summary information as well as a list  of  tasks  currently  being
+       managed  by  the Linux kernel.  The types of system summary information shown and
+       the types, order and size of information displayed for tasks are all user config‐
+       urable and that configuration can be made persistent across restarts.
+
+       The  program provides a limited interactive interface for process manipulation as
+       well as a much more extensive interface for personal  configuration   --   encom‐
+       passing  every  aspect of its operation.  And while top is referred to throughout
+       this document, you are free to name the program  anything  you  wish.   That  new
+       name,  possibly  an  alias, will then be reflected on top's display and used when
+       reading and writing a configuration file.
+
+         <f> and <o> :Fields_select or Order_fields
+              These keys display separate screens where you can change which fields  are
+              displayed  and  their order.  For additional information on these interac‐
+              tive commands see topic 2b. SELECTING and ORDERING Columns.
+
