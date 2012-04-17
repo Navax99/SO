@@ -281,7 +281,8 @@ DESCRIPTION
 
 
 
-       brk, sbrk - change data segment size
+       brk, #sbrk - change data segment size
+       sbrk(0); #devuelve el puntero de fin de heap;
 
 SYNOPSIS
        #include <unistd.h>
