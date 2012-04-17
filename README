@@ -1,1 +1,3 @@
 This is a README
+sudo aptitude install vim-gnome git-core
+git clone https://sashaqr@github.com/sashaqr/SO.git
