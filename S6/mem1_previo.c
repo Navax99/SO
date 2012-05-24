@@ -13,18 +13,20 @@ int
 main (int argc, char *argv[])
 {
   int i;
-  int s;
+  int *s;
 
   if (argc != 3)
     {
       fprintf (stdout, "Usage: %s num1 num2\n", argv[0]);
       exit (1);
     }
-
+  s = malloc(sizeof(int));
   i = atoi (argv[1]);
   j = atoi (argv[2]);
-  suma (i, j, &s);
-  fprintf (stdout, "suma de %d y %d es %d\n", i, j, s);
+  suma (i, j, s);
+  fprintf (stdout, "suma de %d y %d es %d\n", i, j, *s);
+
+  while(1);
 
   exit (0);
 }

@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define DEFAULT_ITERATIONS 	3
+#define DEFAULT_ITERATIONS 	100
 #define REGION_SIZE		4096
 
 char globalArray[REGION_SIZE];
@@ -34,8 +34,9 @@ main (int argc, char *argv[])
 
   for (i = 0; i < niterations; i++)
     {
-      p = malloc (REGION_SIZE);
+      p = (char *)sbrk(REGION_SIZE);
       fprintf (stdout, "\tp: %p, region %d: %p\n", &p, i, p);
+      p = (char *)sbrk(-REGION_SIZE);
     }
 
   while (1);

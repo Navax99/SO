@@ -1,0 +1,1 @@
+cmd_/home/alumne/S8/deviceDrivers/myDriver1.ko := ld -r -m elf_i386 -T /usr/src/linux-source-2.6.32/scripts/module-common.lds --build-id -o /home/alumne/S8/deviceDrivers/myDriver1.ko /home/alumne/S8/deviceDrivers/myDriver1.o /home/alumne/S8/deviceDrivers/myDriver1.mod.o

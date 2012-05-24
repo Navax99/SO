@@ -1,6 +1,6 @@
 all: mem1_previo mem1
 
-mem1_previo:
+mem1_previo: mem1_previo.c
 	gcc -o mem1_previo mem1_previo.c
 
 mem1:

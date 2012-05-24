@@ -6,18 +6,11 @@
 #define REGION_SIZE		4096
 
 int *p;
-void  fsecv(int s) {
-    char buff[256];					
-	sprintf( buff, "segf\n");
-	write(1, buff, strlen(buff));	
-    exit(0);
-}
 
 int main(int argc, char *argv[])
 {
-	signal(SIGSEGV, fsecv);
-    char buff[256];					
-    
+	char buff[256];					
+
 	sprintf( buff, "Addresses:\n");
 	write(1, buff, strlen(buff));	
 	sprintf( buff, "\tp: %p\n", &p);

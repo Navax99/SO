@@ -1,0 +1,44 @@
+1. df -T
+Filesystem     Type     1K-blocks    Used Available Use% Mounted on
+rootfs         rootfs    10452940 6666308   3262344  68% /
+/dev           devtmpfs    892348       0    892348   0% /dev
+run            tmpfs       895896    1368    894528   1% /run
+/dev/sda5      ext4      10452940 6666308   3262344  68% /
+tmpfs          tmpfs       895896   13428    882468   2% /dev/shm
+tmpfs          tmpfs       895896       0    895896   0% /sys/fs/cgroup
+tmpfs          tmpfs       895896       0    895896   0% /media
+tmpfs          tmpfs       895896  871244     24652  98% /tmp
+/dev/sda6      ext4      30855220 6055216  23253540  21% /home
+
+
+df -i
+
+
+Con df -h puedo mirar el porsentaje y Available
+
+2  sl_pr -  soft Inode: 1574300     Links: 1  symbolic link
+    hl_pr - hard Inode: 1573310     Links: 2   regular file
+    hl_pr tiene mismo inode que fichero original, porque es un hardlink que apunta amismo citio
+
+    cat sl_pr 
+    “esto es una prueba”
+    cat hl_pr 
+    “esto es una prueba”
+    [alex@(none) ~]$ namei sl_pr 
+    f: sl_pr
+     l sl_pr -> pr.txt
+        - pr.txt
+    [alex@(none) ~]$ namei hl_pr 
+    f: hl_pr
+    - hl_pr
+    [alex@(none) ~]$ readlink sl_pr
+    pr.txt
+    [alex@(none) ~]$ readlink hl_pr
+
+    El readlink no escribe nada sobre hl_pr porque es hardlink(el fichero original tambien lo es)
+    el namei escribe que sl_pr es un link y pone nombre de fichero original
+    si borro el archivo namei sl_pr me escirbe que archivo original no existe
+
+    no me escribe nada para hl_pr porque de echo es un fichero normal
+
+    3. 
